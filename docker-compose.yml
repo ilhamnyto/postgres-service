@@ -32,7 +32,14 @@ services:
           max-size: "10m"
           max-file: "3"
           
+      networks:
+            - platform
+          
 volumes:
   pg-data:
     driver: local
+    
+networks:
+  platform:
+    external: true
     
