@@ -31,7 +31,8 @@ jobs:
         run: |
             ssh ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
             
-            mkdir -p /opt/services/postgres
+            sudo mkdir -p /opt/services/postgres
+            sudo chown -R ${{ secrets.VPS_USER }}:${{ secrets.VPS_HOST }} /opt/services
             cd /opt/services/postgres
             
             cat > .env <<EOL
